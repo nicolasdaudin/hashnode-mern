@@ -95,4 +95,4 @@ var BugRow = React.createClass({
 	}
 });
 
-export  {BugList, BugTable, BugRow};
+module.exports = {BugList, BugTable, BugRow};

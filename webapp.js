@@ -9,9 +9,12 @@ var config = require('./config');
 var url = config.database;
 var db;
 
+app.set('port', process.env.PORT || 3000);
+
 app.use(express.static('static'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing 
+
 
 
 /*app.get('/', function (req, res) {
@@ -73,7 +76,7 @@ MongoClient.connect(url,function(err,mydb){
 	assert.equal(null,err);
 	db = mydb;
 	console.log('DB Connected');
-	app.listen(3000, function () {
-	  console.log('Example app listening on port 3000!')
+	app.listen(app.get('port'), function () {
+	  console.log('Example app listening on port ' + app.get('port'));
 	})
 })

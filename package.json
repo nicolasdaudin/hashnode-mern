@@ -4,7 +4,7 @@
   "description": "React tutorial with Mern, from hashnode.com website",
   "main": "webapp.js",
   "scripts": {
-    "start": "nodemon webapp.js"
+    "start": "node webapp.js"
   },
   "repository": {
     "type": "git",

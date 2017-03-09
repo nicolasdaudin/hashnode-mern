@@ -40,7 +40,7 @@ var BugList = React.createClass({
 		console.log('BugList - render');
 		return (
 			<div className="bugList">
-				<h1>Quiet some bugs, don't you think?</h1>				
+				<h1>Quiet some bugs Nico, don't you think?</h1>				
 				<BugFilter />
 				<BugTable bugs={this.state.bugs} />
 				<BugAdd onAddBug={this.addBug} />

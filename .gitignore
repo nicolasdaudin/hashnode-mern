@@ -37,7 +37,7 @@ jspm_packages
 .node_repl_history
 
 # Compiled stuff
-static/App.js
+static/*
 
 # other stuff
 *.sublime*

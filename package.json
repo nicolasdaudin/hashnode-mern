@@ -4,6 +4,7 @@
   "description": "React tutorial with Mern, from hashnode.com website",
   "main": "webapp.js",
   "scripts": {
+    "prestart" : "sh ./babel-script.sh",
     "start": "node webapp.js"
   },
   "repository": {

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-babel src --watch --out-dir static
+babel src --out-dir static

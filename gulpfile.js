@@ -37,6 +37,7 @@ gulp.task('bundle', function() {
         .pipe(source('bundle.js'))
         // Start piping stream to tasks!
         .pipe(gulp.dest('./static/'));
+      console.log('Successfully bundled');
 });
 
 gulp.task('watch', function(){

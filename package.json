@@ -4,7 +4,7 @@
   "description": "React tutorial with Mern, from hashnode.com website",
   "main": "webapp.js",
   "scripts": {
-    "prestart": "gulp watch",
+    "prestart": "gulp bundle",
     "start": "node webapp.js"
   },
   "repository": {

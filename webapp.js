@@ -27,10 +27,23 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing
 */
 app.get('/api/bugs',function(req,res){
 
-	
-	db.collection('bugs').find().toArray(function(err,docs){
+	console.log('query string : ' + req.query);
+	console.log('query string', req.query);
+	var filter = {};
+	var priority = req.query.priority;
+	var status = req.query.status;
+	console.log('status='+status);
+	if (priority){
+		filter.priority = priority;
+	}
+	if (status){
+		filter.status = status;
+	}
+	console.log('filter=' + JSON.stringify(filter));
+
+	db.collection('bugs').find(filter).toArray(function(err,docs){
 		assert.equal(null,err);
-		console.log('bugs found in DB : ' + docs);	
+		console.log('Number of Filtered Bugs', Object.keys(docs).length);
 		res.json(docs);
 	});
 

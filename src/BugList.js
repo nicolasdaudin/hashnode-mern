@@ -12,14 +12,21 @@ var BugList = React.createClass({
 	},
 
 	componentDidMount : function(){
+		this.loadData({});
+	},
+
+	loadData : function(filter){
+		console.log('query',filter);
 		$.ajax({
 			url:'/api/bugs',
+			data:filter,
 			method:'GET'
 		})
 		.done((data) => {
 			this.setState({bugs:data});
+			console.log('Number of Bugs received',Object.keys(data).length);
 		})
-		.error((jqxhr) => {
+		.fail((jqxhr) => {
 			console.log('error : ' + jqxhr);
 		})
 	},
@@ -36,7 +43,7 @@ var BugList = React.createClass({
 			bugs.push(data);
 			this.setState({bugs: bugs});
 		})
-		.error((jqxhr) => {
+		.fail((jqxhr) => {
 			console.log('error : ' + jqxhr);
 		})	
 	},
@@ -46,7 +53,7 @@ var BugList = React.createClass({
 		return (
 			<div className="bugList">
 				<h1>Quiet some bugs Nicolas, don't you think?</h1>				
-				<BugFilter />
+				<BugFilter handleFilterParent={this.loadData}/>
 				<BugTable bugs={this.state.bugs} />
 				<BugAdd onAddBug={this.addBug} />
 			</div>
@@ -83,7 +90,7 @@ var BugTable = React.createClass({
 
 var BugRow = React.createClass({
 	render: function(){
-		console.log('BugRow - renokokokder');
+		console.log('BugRow - render');
 		return(
 			<tr>
 				<td>{this.props.bug._id}</td>

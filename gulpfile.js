@@ -26,7 +26,7 @@ var source = require('vinyl-source-stream');
 var watchify = require('watchify');
 
 gulp.task('bundle', function() {
-    return browserify('./src/App.js')
+    var b = browserify('./src/App.js')
     	// browserify évite d'inclure dans index.html les scripts react... et les inclut dans un seul fichier
     	// il regarder tous les require de 'App.js', récusrivement, et construit ainsi son API javascript
     	.transform("babelify", {presets:["es2015","react"]})
@@ -37,7 +37,8 @@ gulp.task('bundle', function() {
         .pipe(source('bundle.js'))
         // Start piping stream to tasks!
         .pipe(gulp.dest('./static/'));
-      console.log('Successfully bundled');
+    console.log('Successfully bundled');
+    return b;
 });
 
 gulp.task('watch', function(){
@@ -67,4 +68,4 @@ gulp.task('watch', function(){
 	return b;
 });
 
-gulp.task('default',['watch']);
+gulp.task('default',['bundle']);

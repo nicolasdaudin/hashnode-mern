@@ -1,6 +1,7 @@
 import React from 'react';
 import BugFilter from './BugFilter';
 import BugAdd from './BugAdd';
+import $ from 'jquery';
 
 /* 
  Here we could have passed directly {mybugs} instead of {this.props.bugs}
@@ -95,4 +96,4 @@ var BugRow = React.createClass({
 	}
 });
 
-module.exports = {BugList, BugTable, BugRow};
+module.exports = {BugList,BugTable,BugRow};

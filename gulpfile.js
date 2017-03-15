@@ -68,4 +68,4 @@ gulp.task('watch', function(){
 	return b;
 });
 
-gulp.task('default',['bundle']);
+gulp.task('default',['watch']);
